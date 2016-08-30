@@ -11,26 +11,30 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="usuario")
+@Table(name="USUARIO", schema = "SCHEMAA")
 public class User {
 	
 	
 	@Id
+	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name="login", nullable=false)
+	
+	@Column(name="LOGIN", nullable=false)
 	private String login;
 	
-	@Column(name="nome", nullable=false)
+	
+	@Column(name="NOME", nullable=false)
 	private String name;
 	
 	
-	@Column(name="senha", nullable=false)
+	@Column(name="SENHA", nullable=false)
 	private String password;
 	
+	
 	@OneToOne
-	@JoinColumn(name="pessoa_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="PESSOA_ID", foreignKey=@ForeignKey(name="ID"))
 	private Person personId;
 	
 	

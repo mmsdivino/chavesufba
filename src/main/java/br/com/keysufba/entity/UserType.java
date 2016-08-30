@@ -8,16 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipo_usuario")
+@Table(name="TIPO_USUARIO", schema = "SCHEMAA")
 public class UserType {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ID")
 	private Integer id;
 
-	@Column(name = "descricao", nullable = false)
+	
+	@Column(name = "DESCRICAO", nullable = false)
 	private String description;
 
+	
 	public Integer getId() {
 		return id;
 	}

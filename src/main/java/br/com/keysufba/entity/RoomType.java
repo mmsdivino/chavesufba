@@ -5,17 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name="tipo_sala")
+@Entity
+@Table(name="TIPO_SALA", schema = "SCHEMAA")
 public class RoomType {
 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="ID")
 	private Integer id;
 	
 	
-	@Column(name="descricao", nullable=false)
+	@Column(name="DESCRICAO", nullable=false)
 	private String description;
 
 
