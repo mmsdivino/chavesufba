@@ -2,31 +2,22 @@ package br.com.keysufba.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
-@Entity(name="tecnico")
-@PrimaryKeyJoinColumn(name="id")
+@Entity
+@Table(name="TECNICO", schema = "SCHEMAA")
+@PrimaryKeyJoinColumn(name="ID")
 public class Technician extends Person {
 	
 	
-	@Id
-	private Integer id;
-	
-	
 	@ManyToOne
-	@JoinColumn(name="departamento_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="departamento_id", foreignKey=@ForeignKey(name="ID"))
 	private Department departmentId;
-	
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+
+
 	public Department getDepartmentId() {
 		return departmentId;
 	}

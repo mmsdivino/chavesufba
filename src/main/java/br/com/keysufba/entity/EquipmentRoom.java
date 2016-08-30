@@ -8,27 +8,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name = "sala_equipamento")
+@Entity
+@Table(name="SALA_EQUIPAMENTO", schema = "SCHEMAA")
 public class EquipmentRoom {
 	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ID")
 	private Integer id;
 	
 	
-	@Column(name="quantidade")
+	@Column(name="QUANTIDADE")
 	private Integer quantity;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="equipamento_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="EQUIPAMENTO_ID", foreignKey=@ForeignKey(name="ID"))
 	private Equipment equipmentId;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="sala_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="SALA_ID", foreignKey=@ForeignKey(name="ID"))
 	private Room roomId;
 
 

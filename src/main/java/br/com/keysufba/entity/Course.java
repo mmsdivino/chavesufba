@@ -8,25 +8,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name="curso")
+@Entity
+@Table(name="CURSO", schema = "SCHEMAA")
 public class Course {
 	
 	@Id
-	@Column(name="id", nullable=false)
+	@Column(name="ID")
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	
-	@Column(name="nome", nullable=false)
+	@Column(name="NOME", nullable=false)
 	private String name;
 	
 	
-	@Column(name="nivel", nullable=false)
+	@Column(name="NIVEL", nullable=false)
 	private String level;
 	
 	@OneToOne
-	@JoinColumn(name="dapartamento_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="DEPARTAMENTO_ID", foreignKey=@ForeignKey(name="ID"))
 	private Department departamentoId;
 	
 	public Integer getId() {

@@ -7,29 +7,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Inheritance(strategy = InheritanceType.JOINED)
-@Entity(name="pessoa")
+@Entity
+@Table(name="PESSOA", schema = "SCHEMAA")
 public class Person {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="ID")
 	private Integer id;
 	
 	
-	@Column(name="nome", nullable=false)
+	@Column(name="NOME", nullable=false)
 	private String name;
 	
 	
-	@Column(name="email", nullable=false)
+	@Column(name="EMAIL", nullable=false)
 	private String email;
 	
 	
-	@Column(name="telefone")
+	@Column(name="TELEFONE")
 	private String phone;
 	
 	
-	@Column(name="foto")
+	@Column(name="FOTO")
 	private String picture;
 	
 	

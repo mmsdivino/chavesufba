@@ -1,5 +1,6 @@
 package br.com.keysufba.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -10,17 +11,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="permissao")
+@Table(name="PERMISSAO", schema = "SCHEMAA")
 public class Permission {
 	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ID")
 	private Integer id;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="tipo_usuario_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="TIPO_USUARIO_ID", foreignKey=@ForeignKey(name="ID"))
 	private UserType userType;
 	
 	

@@ -3,40 +3,33 @@ package br.com.keysufba.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
-@Entity(name="aluno")
-@PrimaryKeyJoinColumn(name="id")
+@Entity
+@Table(name="ALUNO", schema = "SCHEMAA")
+@PrimaryKeyJoinColumn(name="ID")
 public class Student extends Person {
 	
 	
-	@Id
-	private Integer id;
-	
-	
-	@Column(name="matricula", nullable=false)
+	@Column(name="MATRICULA", nullable=false)
 	private String registrationNum;
 	
+	
 	@OneToOne
-	@JoinColumn(name="curso_id", nullable=false, foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="CURSO_ID", nullable=false, foreignKey=@ForeignKey(name="ID"))
 	private Course courseId;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="departamento_id", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="DEPARTAMENTO_ID", foreignKey=@ForeignKey(name="ID"))
 	private Department departmentId;
 	
 	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	
 	public String getRegistrationNum() {
 		return registrationNum;
 	}

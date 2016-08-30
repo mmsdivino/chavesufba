@@ -9,31 +9,34 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name="sala")
+@Entity
+@Table(name="SALA", schema = "SCHEMAA")
 public class Room {
 
 	
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name="ID")
   private Integer id;
 
   
-  @Column(name = "numero", nullable=false)
+  @Column(name = "NUMERO", nullable=false)
   private String number;
 
   
-  @Column(name = "capacidade")
+  @Column(name = "CAPACIDADE")
   private Integer capacity;
 
   
   @OneToOne
-  @JoinColumn(name = "pavilhao_id", foreignKey=@ForeignKey(name="id"))
+  @JoinColumn(name = "PAVILHAO_ID", foreignKey=@ForeignKey(name="ID"))
   private Pavilion pavilionId;
 
   
   @OneToOne
-  @JoinColumn(name = "tipo_sala_id")
+  @JoinColumn(name = "TIPO_SALA_ID")
   private RoomType roomTypeId;
 
   

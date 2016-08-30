@@ -1,5 +1,6 @@
 package br.com.keysufba.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
@@ -7,23 +8,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name="Pessoa_Usuario")
+@Entity
+@Table(name="PESSOA_USUARIO", schema = "SCHEMAA")
 public class UserPerson {
 	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ID")
 	private Integer id;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="tipo_usuario", nullable=false, foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="TIPO_USUARIO_ID", nullable=false, foreignKey=@ForeignKey(name="ID"))
 	private UserType userTypeId;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="pessoa_id", nullable=false, foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="PESSOA_ID", nullable=false, foreignKey=@ForeignKey(name="ID"))
 	private Person personId;
 
 	

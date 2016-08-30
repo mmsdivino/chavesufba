@@ -5,16 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name="departamento")
+@Entity
+@Table(name="DEPARTAMENTO", schema = "SCHEMAA")
 public class Department {
 
 	@Id
-	@Column(name="id", nullable = false)
+	@Column(name="ID", nullable = false)
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name="nome")
+	@Column(name="NOME")
 	private String name;
 	
 	public Integer getId() {

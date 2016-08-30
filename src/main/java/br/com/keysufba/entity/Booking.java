@@ -10,45 +10,48 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity(name="reserva")
+@Entity
+@Table(name = "RESERVA", schema = "SCHEMAA")
 public class Booking {
 	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="ID")
 	private Integer id;
 	
 	
 	@OneToOne
-	@JoinColumn(name="professor")
+	@JoinColumn(name="PROFESSOR_ID")
 	private Teacher teacherId;
 	
 	
 	@OneToOne
-	@JoinColumn(name="room", nullable=false)
+	@JoinColumn(name="SALA", nullable=false)
 	private Room roomId;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="hora_inicio")
+	@Column(name="HORA_INICIO")
 	private Calendar beginTime;
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name="hora_fim")
+	@Column(name="HORA_FINAL")
 	private Calendar endTime;
 	
 	
 	@OneToOne
-	@JoinColumn(name="tecnico", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="TECNICO", foreignKey=@ForeignKey(name="ID"))
 	private Technician technicianId;
 	
 	
 	@OneToOne
-	@JoinColumn(name="status_reserva", foreignKey=@ForeignKey(name="id"))
+	@JoinColumn(name="STATUS_RESERVA_ID", foreignKey=@ForeignKey(name="ID"))
 	private BookingStatus bookingStatusId;
 
 
