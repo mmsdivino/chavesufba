@@ -1,32 +1,26 @@
 package br.com.keysufba.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.io.Serializable;
 
-@Table(name = "TIPO_SALA", schema = "SCHEMAA")
+import org.hibernate.validator.constraints.Length;
+
 @Entity
-public class RoomType {
+@Table(name = "TIPO_SALA", schema = "SCHEMAA")
+public class RoomType implements Serializable {
+
+  private Integer id;
+  private String description;
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name = "ID")
-  private Integer id;
-
-  @NotNull
-  @Column(name = "DESCRICAO")
-  private String description;
-
-  @OneToMany(mappedBy = "roomType")
-  private List<Room> rooms;
-
+  @Column(name = "ID", unique = true, nullable = false)
   public Integer getId() {
     return id;
   }
@@ -35,6 +29,9 @@ public class RoomType {
     this.id = id;
   }
 
+  @NotNull
+  @Length(max = 256)
+  @Column(name = "DESCRICAO", length = 256, nullable = false)
   public String getDescription() {
     return description;
   }
@@ -43,11 +40,4 @@ public class RoomType {
     this.description = description;
   }
 
-  public List<Room> getRooms() {
-    return rooms;
-  }
-
-  public void setRooms(final List<Room> rooms) {
-    this.rooms = rooms;
-  }
 }
