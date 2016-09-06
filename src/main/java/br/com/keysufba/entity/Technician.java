@@ -21,6 +21,14 @@ public class Technician {
   private Department department;
   private Person person;
 
+  Technician(){
+	  
+  }
+  
+  public Technician(Integer id){
+	  this.id = id;
+  }
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)
