@@ -21,14 +21,14 @@ public class Technician {
   private Department department;
   private Person person;
 
-  Technician(){
-	  
+  Technician() { // jpa only
+
   }
-  
-  public Technician(Integer id){
-	  this.id = id;
+
+  public Technician(Integer id) {
+    this.id = id;
   }
-  
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "ID", unique = true, nullable = false)
