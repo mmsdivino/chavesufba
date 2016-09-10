@@ -5,6 +5,7 @@ import java.util.List;
 import br.com.keysufba.domain.BookingStatus;
 import br.com.keysufba.entity.Booking;
 import br.com.keysufba.service.BookingService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -25,14 +26,14 @@ public class BookingController {
   private BookingService bookingService;
 
   @RequestMapping(method = RequestMethod.GET)
-  public HttpEntity<List<Booking>> getBookings(@RequestParam(value="status") BookingStatus status) {
-    List<Booking> bookings = null;
-    if (status != null) {
-      bookings = bookingService.findByStatus(status);
+  public HttpEntity<List<Booking>> getBookings(@RequestParam(value="status", defaultValue = "") BookingStatus status) {
+    if (status == null || StringUtils.isBlank(status.getDescryption())) {
+      final List<Booking> bookings = bookingService.findAll();
+      return new ResponseEntity<>(bookings, HttpStatus.OK);
     } else {
-      bookings = bookingService.findAll();
+      final List<Booking> bookings = bookingService.findByStatus(status);
+      return new ResponseEntity<>(bookings, HttpStatus.OK);
     }
-    return new ResponseEntity<>(bookings, HttpStatus.OK);
   }
 
   @RequestMapping(path = "/{id}", method = RequestMethod.GET)
