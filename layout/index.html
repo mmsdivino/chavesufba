@@ -91,21 +91,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
             </div>
 
-            <!-- search form (Optional) -->
-            <form action="#" method="get" class="sidebar-form">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-                </div>
-            </form>
+          
             <!-- /.search form -->
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="header">HEADER</li>
+                <li class="header">Menu</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
                 <li class="treeview">
@@ -118,11 +109,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="treeview-menu">
                         <li>
                             <a href="pages/lista_salas.html"><i class="fa fa-circle-o"></i> Buscar salas</a></li>
-                        <li>
+                       
+                </li>
+                <li>
                             <a href="pages/cadastrar_sala.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a>
                         </li>
-                    </ul>
-                </li>
+            </ul>
                 <li class="treeview">
                     <a href="#">
                         <i class="fa fa-user"></i> <span>Usuário</span>
@@ -131,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="pages/cadastrar_usuario.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a>
+                        <li><a href="cadastrar_usuario.html"><i class="fa fa-pencil-square-o"></i> Cadastro</a>
                         </li>
                     </ul>
                 </li>
@@ -150,10 +142,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Dashboard
                 <small>Painel administrativo</small>
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="#">Level</a></li>
-                <li class="active">Here</li>
-            </ol>
         </section>
 
         <!-- Main content -->
@@ -213,6 +201,110 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <!-- ./col -->
             </div>
+
+            <!-- Filtros -->
+            
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h4>Salas</h4>
+                </div>
+                <div class="panel-body">
+                    <form method="POST" action="">
+                        <div class="box-tools">
+                      <div class="input-group input-group-sm" >
+                            <div class="form-group">
+
+                  <div class="col-md-3">
+                    <label>Pavilhão:</label>
+                    <select class="form-control">
+                      <option>-- Pavilhão --</option>
+                      <option value="1">Pavilhão 1</option>
+                      <option value="2">Pavilhão 3</option>
+                      <option value="3">Pavilhão 5</option>
+                      <option value="4">IME</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <label>Capacidade Máxima:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <div class="input-group-addon">
+                      </div>
+                    </div>
+                    <!-- /.input group -->
+                  </div>
+
+                  <div class="col-md-3">
+                    <label>Tipo da Sala:</label>
+                    <select class="form-control">
+                      <option>-- Tipo --</option>
+                      <option value="1">Tipo 1</option>
+                      <option value="2">Tipo 2</option>
+                      <option value="3">Tipo 3</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-3">
+                    <button type="button" class="btn btn-primary pull-right" style="margin-top: 25px;">Pesquisar</button>
+                  </div>
+
+
+                </div>
+                          </div>
+                        </div><br>
+                    </form>
+                  <div class="box-body table-responsive no-padding">
+                    <table class="table table-bordered table-hover">
+                      <tr>
+                        <th>Número</th>
+                        <th>Local</th>
+                        <th>Tipo</th>
+                        <th>Cadeiras</th>
+                        <!-- <th>Status</th> -->
+                        <th>Reserva</th>
+                      </tr>
+                      <tr>
+                        <td>133</td>
+                        <td>IM</td>
+                        <td>Laboratório</td>
+                        <td>40</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>28</td>
+                        <td>PAF III</td>
+                        <td>Sala de aula</td>
+                        <td>60</td>
+                        <!-- <td><span class="label label-danger">Reservada</span></td>
+                        <td><button type="button" class="btn btn-danger">Sala Reservada</button></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>133</td>
+                        <td>IM</td>
+                        <td>Laboratório</td>
+                        <td>30</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                      <tr>
+                        <td>259</td>
+                        <td>PAF 1</td>
+                        <td>Sala de aula</td>
+                        <td>50</td>
+                        <!-- <td><span class="label label-success">Disponível</span></td> -->
+                        <td><button type="button" class="btn btn-primary"><a href="pages/sala.html" style="color: white;">Solicitar</a></button></td>
+                      </tr>
+                    </table>
+                      </div>
+                </div>
+              <!-- /.box-body -->
+            </div>
+        
+
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="panel panel-primary">
